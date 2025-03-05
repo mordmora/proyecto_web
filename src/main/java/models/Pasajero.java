@@ -22,7 +22,6 @@ public class Pasajero {
     @JoinColumn(name = "pasaporte_id", referencedColumnName = "id")
     private Pasaporte pasaporte;
 
-    @OneToMany
-    @JoinColumn(name = "reserva_id")
-    private Set<Reserva> reserva;
+    @OneToMany(mappedBy = "pasajero", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Reserva> reservas;
 }
