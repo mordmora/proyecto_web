@@ -1,18 +1,17 @@
-package models;
+package com.example.demo.models;
 
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Table(name = "pasajeros")
-@Setter
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-@Data
 public class Pasajero {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,5 +22,5 @@ public class Pasajero {
     private Pasaporte pasaporte;
 
     @OneToMany(mappedBy = "pasajero", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Reserva> reservas;
+    private Set<Reserva> reservas = new HashSet<>();
 }

@@ -1,4 +1,4 @@
-package models;
+package com.example.demo.models;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -8,12 +8,10 @@ import java.util.List;
 
 @Entity
 @Table(name = "aereolineas")
-@AllArgsConstructor
-@NoArgsConstructor
-@Setter
 @Getter
-@Data
-@Builder
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Aereolinea {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

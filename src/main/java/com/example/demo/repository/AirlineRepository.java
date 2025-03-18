@@ -1,7 +1,7 @@
-package repository;
+// Archivo: src/main/java/com/example/demo/repository/AirlineRepository.java
+package com.example.demo.repository;
 
-import models.Aereolinea;
-import models.Vuelo;
+import com.example.demo.models.Aereolinea;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -30,6 +30,6 @@ public interface AirlineRepository extends JpaRepository<Aereolinea, Long> {
     @Query("SELECT a FROM Aereolinea a WHERE a.name = :name AND SIZE(a.vuelos) > :size")
     List<Aereolinea> findByNameAndVuelosGreaterThan(String name, int size);
 
-    @Query("SELECT DISTINCT a FROM Aereolinea a JOIN a.vuelos v WHERE v.destiny LIKE %:destino%")
-    List<Aereolinea> findByVuelosDestiny(String destiny);
-} 
+    @Query("SELECT DISTINCT a FROM Aereolinea a JOIN a.vuelos v WHERE v.destiny LIKE CONCAT('%', :destino, '%')")
+    List<Aereolinea> findByVuelosDestiny(String destino);
+}

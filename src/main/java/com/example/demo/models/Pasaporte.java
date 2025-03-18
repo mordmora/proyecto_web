@@ -1,4 +1,4 @@
-package models;
+package com.example.demo.models;
 
 
 import jakarta.persistence.*;
@@ -6,12 +6,10 @@ import lombok.*;
 
 @Entity
 @Table(name = "pasaportes")
-@Getter
 @Setter
-@AllArgsConstructor
+@Getter
 @NoArgsConstructor
-@Builder
-@Data
+@AllArgsConstructor
 public class Pasaporte {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

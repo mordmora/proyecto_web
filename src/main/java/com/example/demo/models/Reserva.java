@@ -1,4 +1,4 @@
-package models;
+package com.example.demo.models;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -8,10 +8,8 @@ import java.util.UUID;
 @Entity
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-@Builder
-@Data
+@AllArgsConstructor
 @Table(name = "reservas")
 public class Reserva {
     @Id

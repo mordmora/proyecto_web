@@ -1,4 +1,4 @@
-package models;
+package com.example.demo.models;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -7,13 +7,11 @@ import java.util.Set;
 import java.util.UUID;
 
 @Entity
-@Setter
-@Getter
 @Table(name = "vuelos")
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-@Data
 public class Vuelo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,8 +26,7 @@ public class Vuelo {
     @Column
     private String destiny;
 
-    @OneToMany
-    @JoinColumn(name = "reserva_id", nullable = false)
+    @OneToMany(mappedBy = "vuelo")
     private Set<Reserva> reservas;
 
     @ManyToMany(mappedBy = "vuelos")
